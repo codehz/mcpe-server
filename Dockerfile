@@ -6,6 +6,9 @@ COPY CMakeLists.txt ./
 RUN cmake .
 RUN make
 
-FROM codehz/mcpe-server-dev
-WORKDIR /root
+FROM scratch
+WORKDIR /
 COPY --from=builder /root/app/server .
+COPY --from=builder /lib/ld-linux.so.2 .
+COPY --from=builder /lib/i386-linux-gnu/libc.so.6 .
+COPY --from=builder /lib/i386-linux-gnu/libm.so.6 .
