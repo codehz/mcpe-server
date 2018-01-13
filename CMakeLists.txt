@@ -3,7 +3,7 @@ project(mcpelauncher)
 
 enable_language(C ASM)
 
-include_directories(hybris/include)
+include_directories(libs/hybris/include)
 
 #SET(CMAKE_CXX_COMPILER "g++-4.9")
 #SET(CMAKE_C_COMPILER "gcc-4.9")
@@ -16,7 +16,7 @@ set(CMAKE_LIBRARY_ARCHITECTURE "i386-linux-gnu")
 find_package(Threads REQUIRED)
 find_package(ZLIB REQUIRED)
 
-set(HYBRIS_SOURCES hybris/src/cache.c hybris/src/dlfcn.c hybris/src/hooks.c hybris/src/hooks_shm.c hybris/src/logging.c hybris/src/properties.c hybris/src/strlcpy.c hybris/src/ctype.c hybris/src/sysconf.c hybris/src/jb/dlfcn.c hybris/src/jb/linker.c hybris/src/jb/linker_environ.c hybris/src/jb/linker_format.c hybris/src/jb/rt.c)
+set(HYBRIS_SOURCES libs/hybris/src/cache.c libs/hybris/src/dlfcn.c libs/hybris/src/hooks.c libs/hybris/src/hooks_shm.c libs/hybris/src/logging.c libs/hybris/src/properties.c libs/hybris/src/strlcpy.c libs/hybris/src/ctype.c libs/hybris/src/sysconf.c libs/hybris/src/jb/dlfcn.c libs/hybris/src/jb/linker.c libs/hybris/src/jb/linker_environ.c libs/hybris/src/jb/linker_format.c libs/hybris/src/jb/rt.c)
 
 set(COMMON_SOURCE_FILES src/common/common.cpp src/common/hook.cpp src/client/appplatform.cpp src/minecraft/ImagePickingCallback.h src/minecraft/FilePickerSettings.h src/minecraft/Common.h src/minecraft/Xbox.h src/minecraft/string.cpp src/minecraft/string.h src/common/base64.cpp src/common/base64.h src/common/async_result_util.h src/common/extract.cpp src/common/extract.h src/common/path_helper.cpp src/common/path_helper.h src/common/log.cpp src/common/log.h src/minecraft/symbols.cpp src/minecraft/symbols.h)
 set(SERVER_SOURCE_FILES src/server/server.cpp src/server/server_minecraft_app.h src/server/server_properties.cpp src/server/server_properties.h)
