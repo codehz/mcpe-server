@@ -1,9 +1,8 @@
 FROM codehz/mcpe-server-dev as builder
 WORKDIR /root
-RUN git clone https://github.com/MCMrARM/mcpelauncher-linux app
+RUN git clone https://github.com/MCMrARM/mcpelauncher-linux app --depth=1 -b master
 WORKDIR /root/app
-COPY CMakeLists.txt ./
-RUN cmake .
+RUN cmake . -DBUILD_CLIENT=false -DCMAKE_FIND_LIBRARY_SUFFIXES=".a" -DBUILD_SHARED_LIBRARIES=OFF -DCMAKE_EXE_LINKER_FLAGS="-rdynamic -static -Wl,--whole-archive -lrt -lm -lzip -Wl,--no-whole-archive"
 RUN make
 
 FROM scratch
