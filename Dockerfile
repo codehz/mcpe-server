@@ -8,6 +8,7 @@ RUN make
 FROM scratch
 WORKDIR /
 COPY --from=builder /root/app/server .
+COPY --from=builder /root/app/LICENSE .
 COPY --from=builder /lib/ld-linux.so.2 .
 COPY --from=builder /lib/i386-linux-gnu/libc.so.6 .
 COPY --from=builder /lib/i386-linux-gnu/libm.so.6 .
